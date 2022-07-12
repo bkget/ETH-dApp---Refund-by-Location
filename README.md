@@ -5,7 +5,6 @@
   <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/bkget/ETH_dApp-Refund_by_Location?color=2b9348"></a>
   <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bkget/ETH_dApp-Refund_by_Location?color=2b9348" alt="License Badge"/></a>
   </div>
-</br>
 
 # ETH dApp - Refund by Location
 
