@@ -1,13 +1,12 @@
+<div style="margin:0 auto;">
+  <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location"><img src="https://img.shields.io/github/forks/bkget/ETH_dApp-Refund_by_Location" alt="Forks Badge"/></a>
+  <a "https://github.com/bkget/ETH_dApp-Refund_by_Location/pulls"><img src="https://img.shields.io/github/issues-pr/bkget/ETH_dApp-Refund_by_Location" alt="Pull Requests Badge"/></a>
+  <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/issues"><img src="https://img.shields.io/github/issues/bkget/ETH_dApp-Refund_by_Location" alt="Issues Badge"/></a>
+  <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/bkget/ETH_dApp-Refund_by_Location?color=2b9348"></a>
+  <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bkget/ETH_dApp-Refund_by_Location?color=2b9348" alt="License Badge"/></a>
+  </div>
+</br>
 ## ETH dApp - Refund by Location
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+This project demonstrates a basic Hardhat use case with a sample contract, a test for that contract, and a script that deploys that contract.
+An Ethereum-smart-contract based dApp is implemented that verifies the other party in the contract has stayed within a predefined geographical location and handles payment.
