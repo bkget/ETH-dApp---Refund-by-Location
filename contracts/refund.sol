@@ -7,21 +7,23 @@ import "hardhat/console.sol";
 contract Refund {
     address owner; 
 
-    // Map employee name and address to employee list
-    struct employeesList{
-        string name; 
-        address empaddress;
-    }
+    // // Map employee name and address to employee list
+    // struct EmployeesList{
+    //     string name; 
+    //     address empaddress;
+    // }
     
     // Map the employee details to employeeDetail
     struct EmployeeDetail { 
+        string name; 
         uint256 latitude;
         uint256 longitude;
         uint256 allowedDistance;
         uint256 amount;
     }
-    mapping (address => employeesList) employeeList;
-    mapping(address => bool) public employeeCondition;
+    // Creating a mapping 
+    mapping (address => EmployeeDetail) employeeDetail;
+    mapping (address => bool) public employeeCondition;
     address[] public employees;
 
 
@@ -34,25 +36,31 @@ contract Refund {
         return owner;
     }
 
-    function createEmployee(address empAddress, string memory name, uint256 latitude, uint256 longitude, uint256 allowedDistance) public {
+    function createEmployee(address empAddress, string memory _name, uint256 _latitude, uint256 _longitude, uint256 _allowedDistance, uint256 _amount) public {
         // restrict employee creation to owner
         require(msg.sender == owner);
-        // set Employee address using the employeeList mapping
-        employeeList[empAddress].empaddress = empAddress;
-        // set Employee name using the employeeList mapping
-        employeeList[empAddress].name = name;
+        // set Employee name using the employeeDetail mapping
+        employeeDetail[empAddress].name = _name; 
         // set Employee latitude using the EmployeeDetail struct mapping
-        employeeList[empAddress].EmployeeDetail.latitude = latitude;
+        employeeDetail[empAddress].latitude = _latitude;
         // set Employee longitude using the employeeDetail struct mapping
-        employeeList[empAddress].EmployeeDetail.longitude = longitude;
+        employeeDetail[empAddress].longitude = _longitude;
         // set the Employee's allowed distance using the employeeDetail struct mapping
-        employeeList[empAddress].EmployeeDetail.allowedDistance = allowedDistance;
+        employeeDetail[empAddress].allowedDistance = _allowedDistance;
+        // set the amount using the employeeDetail struct mapping
+        employeeDetail[empAddress].amount = _amount;
         // push user address into userAddresses array
         employees.push(empAddress);
     }
-EmployeeDetail
-    function getEmployeeDetail(address empAddress) public view returns (string memory, uint256, uint256, uint256) {
-        return (employeeDetail[empAddress].name, employeeDetail[empAddress].latitude, employeeDetail[empAddress].longitude, employeeDetail[empAddress].allowedDistance);
+
+    function getEmployeeDetail(address empAddress) public view returns (string memory, uint256, uint256, uint256, uint256) {
+        return (
+            employeeDetail[empAddress].name, 
+            employeeDetail[empAddress].latitude, 
+            employeeDetail[empAddress].longitude, 
+            employeeDetail[empAddress].allowedDistance,
+            employeeDetail[empAddress].amount
+            );
     }
 
     function getEmployees() public view returns (address[] memory) {
@@ -82,7 +90,7 @@ EmployeeDetail
 
     function calculateDistance(uint256 lat, uint256 lon) public view returns (uint256 dist)
     {
-        (,uint256 lat1, uint256 lon1,) = getEmployeeDetail(msg.sender);
+        (,uint256 lat1, uint256 lon1, ,) = getEmployeeDetail(msg.sender);
 
         uint256 distance = uint256(sqrt((lat - lat1) ** 2 + (lon - lon1) ** 2));
         return uint256(distance);
