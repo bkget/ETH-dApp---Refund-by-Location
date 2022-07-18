@@ -6,7 +6,7 @@
   <a href="https://github.com/bkget/ETH_dApp-Refund_by_Location/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bkget/ETH_dApp-Refund_by_Location?color=2b9348" alt="License Badge"/></a>
   </div>
 
-# ETH dApp - Refund by Location
+# ETH Smart Contract - Refund by Location
 
 ## Introduction
 This project demonstrates a basic Hardhat use case with an Ethereum smart contract, a test for that contract, and a script that deploys that contract. 
